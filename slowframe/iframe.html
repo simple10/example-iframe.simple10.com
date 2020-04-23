@@ -1,0 +1,21 @@
+<script>
+document.addEventListener('load', onload);
+document.addEventListener('DOMContentLoaded', ondomload);
+document.addEventListener('message', onmessage);
+
+function onload(){
+  console.log('iframe page loaded');
+}
+
+function ondomload(){
+  console.log('iframe dom loaded');
+}
+
+function onmessage(event){
+  console.log('iframe received message:', event);
+}
+</script>
+
+<h1>This is an iframe with a gaint image</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Georgetown_PowerPlant_interior_pano.jpg">
