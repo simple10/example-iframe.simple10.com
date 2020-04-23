@@ -4,13 +4,17 @@ document.addEventListener('DOMContentLoaded', ondomload);
 
 function onload(){
   console.log('parent page loaded');
+  var iframes = document.getElementsByTagName('iframe');
+  for (var i=0; i<iframes.length; i++) {
+    console.log('Testing iframe readyState: %s', iframes[i].readyState);
+  }
 }
 
 function ondomload(){
   console.log('parent dom loaded');
   var iframes = document.getElementsByTagName('iframe');
   for (var i=0; i<iframes.length; i++) {
-    console.log('Testing iframe readyState: %s', iframes[i].readyState, iframes[i].document.readyState, iframes[i]);
+    console.log('Testing iframe readyState: %s', iframes[i].readyState);
     iframes[i].addEventListener('load', onframeload);
     iframes[i].addEventListener('readyStateChange', onreadystatechange);
   }
