@@ -18,3 +18,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>
   <a href="https://example-shop.simple10.com/shop/" target="_top">Click for example-shop.simple10.com/shop/</a>
 </p>
+
+<pre id="log"></pre>
+  
+<script>
+  var log = document.getElementById('log');
+  log.innerHtml += 'Window referrer: ' + window.referrer + '\nDocument referrer: ' + document.referrer;
+</script>
