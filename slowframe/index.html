@@ -1,0 +1,30 @@
+<script>
+document.addEventListener('load', onload);
+document.addEventListener('DOMContentLoaded', ondomload);
+
+function onload(){
+  console.log('parent page loaded');
+}
+
+function ondomload(){
+  console.log('parent dom loaded');
+  var iframes = document.getElementsByTagName('iframe');
+  for (var i=0; i<iframes.length; i++) {
+    console.log('Testing iframe readyState: %s', iframes[i].readyState, iframes[i]);
+    iframes[i].addEventListener('load', onframeload);
+  }
+}
+
+function onframeload(){
+  console.log('parent detected iframe load');
+}
+</script>
+
+<h1>This page loads and iframe and tests in javascript how to tell when iframe is ready to receive a postMessage</h1>
+
+<p>To test, set network speed Chrome DevTools to Slow 3G or slower. A large image loads on this page and in the iframe.</p>
+
+
+<iframe src="iframe.html" width=800 height=1000></iframe>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg">
